@@ -1,9 +1,4 @@
 class People{
-    name;
-    wealth;
-    win;
-    lose;
-    winSentence;
 
     constructor(name, wealth, win, lose, winSentence){
         this.name = name;
@@ -21,11 +16,6 @@ people[3] = new People("Larry Page", 69400000000, "./images/win_lose/larry_win.j
 people[4] = new People("Elon Musk", 98500000000, "./images/win_lose/elon_win.jpg", "./images/win_lose/elon_lose.jpg", "Elon is forever grateful to you! After you helped him, he finally got free time and was able to put his efforts into his project to launch his X Æ A-Xii spacecraft.");
 
 class Goods{
-    prefix;
-    name;
-    price;
-    img;
-    source;
 
     constructor(prefix, name, price, img, source){
         this.prefix = prefix;
