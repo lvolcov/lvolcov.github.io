@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>How rich?</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./static/styles.css" />
+	<script src="./static/game.js"></script>
+</head>
+
+<body>
+	<a href="./home.html">
+		<img id="logo" src="./images/logo.gif">
+	</a>
+	<div id="data">
+		<div id="info_game">
+			<span><a id="name"></a> asked you to spend <a id="amount"></a>.<br> Go Shopping!</span>
+		</div><br>
+		<div class="container-fluid" style="width: 80%;">
+			<div class="row">
+				<div class="col-md-3">
+					<table class="table table-bordered" id="table0">
+						<thead>
+							<tr class="table-light">
+								<th scope="col"><img id="img0" style="width:80%;" src=""></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-light">
+								<td><span><a id="item0"></a><a id="tip0" style="color:green">&nbsp;</a></span></td>
+							</tr>
+							<tr class="table-light">
+								<td>
+									<div>
+										<input id="qtd0" type="number" autocomplete="off" class="form-control" min="0"
+											max="1000000000000" step="1" name="qtd0" placeholder="How many?"
+											style="width: 90%;"required>
+										<span id="valid0" class="validity" style="color:#FF0000">&nbsp;</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3">
+					<table class="table table-bordered" id="table1">
+						<thead>
+							<tr class="table-light">
+								<th scope="col"><img id="img1" style="width: 80%;" src=""></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-light">
+								<td><span><a id="item1"></a><a id="tip1" style="color:green">&nbsp;</a></span></td>
+							</tr>
+							<tr class="table-light">
+								<td>
+									<div>
+										<input id="qtd1" type="number" autocomplete="off" class="form-control" min="0"
+											max="1000000000000" step="1" name="qtd1" placeholder="How many?"
+											style="width: 90%;" required>
+										<span id="valid1" class="validity" style="color:#FF0000">&nbsp;</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3">
+					<table class="table table-bordered" id="table2">
+						<thead>
+							<tr class="table-light">
+								<th scope="col"><img id="img2" style="width: 80%;" src=""></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-light">
+								<td><span><a id="item2"></a><a id="tip2" style="color:green">&nbsp;</a></span></td>
+							</tr>
+							<tr class="table-light">
+								<td>
+									<div>
+										<input id="qtd2" type="number" autocomplete="off" class="form-control" min="0"
+											max="1000000000000" step="1" name="qtd2" placeholder="How many?"
+											style="width: 90%;" required>
+										<span id="valid2" class="validity" style="color:#FF0000">&nbsp;</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="last_table" class="col-md-3">
+					<table class="table table-bordered" id="table3">
+						<thead>
+							<tr class="table-light">
+								<th scope="col"><img id="img3" style="width: 80%;" src=""></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-light">
+								<td><span><a id="item3"></a><a id="tip3" style="color:green">&nbsp;</a></span></td>
+							</tr>
+							<tr class="table-light">
+								<td>
+									<div>
+										<input id="qtd3" type="number" autocomplete="off" class="form-control" min="0"
+											max="1000000000000" step="1" name="qtd3" placeholder="How many?"
+											style="width: 90%;" required>
+										<span id="valid3" class="validity" style="color:#FF0000">&nbsp;</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="container_botoes" class="container">
+		<div id="botoes" class="row">
+			<div class="col-xs-3">
+				<button id="tip" type="button" class="btn btn-warning"><span>Get a hint<br><a id="tip_message">3</a>x</span></button>
+			</div>
+			<div class="col-xs-3">
+				<button id="score" type="button" disabled><span>Your score: <br> <a id="scoreCounting">10000</a></span></button>
+			</div>
+			<div class="col-xs-3">
+				<button id="submit" type="submit" class="btn btn-success" disabled><span>Submit answer<br><a id="submissions">5</a>x</span></button>
+			</div>
+		</div>
+	</div>
+
+  <!-- Modal win lose -->
+  <div id="modal_win_lose" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="modal_win_lose_title"></h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<img id="win_lose" style="width: 80%;" src=""><br>&nbsp <br>
+			<a id="modal_win_lose_body"></a> &nbsp<br> &nbsp
+			<table class="table" id="tableWin" style="display: none">
+				<thead class="thead-dark">
+				  <tr>
+					<th scope="col">Item</th>
+					<th scope="col">Price</th>
+					<th scope="col">Units</th>
+					<th scope="col">Total</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<th scope="row" id="tableItem0" style="text-align: left;">testando</th>
+					<td id="tablePriceItem0">testando</td>
+					<td id="tableUnitsItem0">testando</td>
+					<td id="tableTotalItem0">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" id="tableItem1" style="text-align: left;">testando</th>
+					<td id="tablePriceItem1">testando</td>
+					<td id="tableUnitsItem1">testando</td>
+					<td id="tableTotalItem1">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" id="tableItem2" style="text-align: left;">testando</th>
+					<td id="tablePriceItem2">testando</td>
+					<td id="tableUnitsItem2">testando</td>
+					<td id="tableTotalItem2">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" id="tableItem3" style="text-align: left;">testando</th>
+					<td id="tablePriceItem3">testando</td>
+					<td id="tableUnitsItem3">testando</td>
+					<td id="tableTotalItem3">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" colspan="3" style="text-align: right;">Total: </th>
+					<td id="tableTotal" style="font-weight: bolder;">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" colspan="3" style="text-align: right;">Accuracy: </th>
+					<td id="tableAccuracy" style="font-weight: bolder;">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" colspan="3" style="text-align: right; color: green;">Bonus points for Accuracy: </th>
+					<td id="tableBonus" style="font-weight: bolder; color: green;">testando</td>
+				  </tr>
+				  <tr>
+					<th scope="row" colspan="3" style="text-align: right; color: green;">Your total Score: </th>
+					<td id="tableTotalScore" style="font-weight: bolder; color: green;">testando</td>
+				  </tr>
+				</tbody>
+			  </table>
+			  
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" id="modal_leaderboard_button"> See leaderboard</button>
+		  <button type="button" class="btn btn-primary" id="modal_win_lose_button"></button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <!-- wrong answer -->
+  <div class="modal fade" id="wrong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLongTitle">WRONG ANSWER!</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<a id="text_wrong"></a>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+</body>
+</html>

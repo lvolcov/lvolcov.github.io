@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>How rich?</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./static/styles.css" />
+	<script src="./static/index.js"></script>
+</head>
+
+<body>
+	<a href="./home.html">
+		<img id="logo" src="./images/logo.gif">
+	</a>
+	<div id="data">
+		<br><br><br>
+		<div class="flex-container">
+			<div id="nameleader" class="form-inline col-sm-5">
+				<input class="form-control " id="nameLeaderboard" type="text" placeholder="Name for the Leaderboard" maxlength="14">
+			</div>&nbsp;
+			<div id="go_second_page">
+				<select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+					<option value="" disabled selected>Choose your billionaire: &nbsp</option>
+					<option value="0">Jeff Bezos</option>
+					<option value="1">Bill Gates</option>
+					<option value="2">Mark Zuckerberg</option>
+					<option value="3">Larry Page</option>
+					<option value="4">Elon Musk</option>
+				</select>
+			</div><br>&nbsp;
+			<div>
+				<button id="next" type="button" class="btn btn-success" style="font-size: x-large;"
+					disabled>Next</button>
+			</div>
+		</div><br> <br>
+		<div id="info_person" class="flex-container">
+			<div><img id="img_first" src=""></div>
+			<div id="text_first"></div>
+		</div><br>
+		<footer id="footer">
+			<span>Source: Wikipedia</span>
+		</footer>
+	</div>
+</body>
+
+</html>

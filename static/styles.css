@@ -1,0 +1,245 @@
+body {
+    background-image: url('money.jpg');
+    text-align: center;
+}
+#game
+{
+    margin-left: 7%;
+    margin-right: 7%;
+    font-weight: bolder;
+    padding: 20px;
+}
+#howto
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    font-weight: bolder;
+}
+#rules
+{
+    list-style-type: circle;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    font-weight: bolder;
+    font-size: 1.3vw;
+}
+
+.form-control{
+    display: block;      
+    margin-left: auto;
+    margin-right: auto;
+}
+#text_first{
+    margin-left: 2%;
+    text-justify: auto;
+    text-align: left;
+    font-size: x-large;
+    word-wrap: break-word;
+    font-weight: bolder;
+    background-color: rgba(230, 230, 230, 0.8);
+}
+
+#item0, #item1, #item2, #item3, #item4, #id, #submit, #tip, #botoes {
+    font-weight: bolder; 
+    font-size: large;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+
+li span, #game span, #howto span, #select span, #footer span, #selectbi span, #info_game span
+{
+    background-color: rgba(230, 230, 230, 0.8);
+}
+
+#tip0, #tip1, #tip2, #tip3 {
+    width: 100px;
+    height: 100px;
+  }
+
+
+#score:disabled{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+  }
+
+.modal {
+overflow-y:auto;
+}
+
+@media screen and (min-width: 601px) {
+    body {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    #game, #howto {
+      font-size: 2vw;
+    }
+    #rules {
+        font-size: 1.5vw;
+      }
+    body {
+        background-size: 10%;
+    }
+    #logo {
+        position: static;
+        width: 40%;
+    }
+    #selectbi{
+        margin-top: 1%;
+        font-size: 2vw;
+        font-weight: bolder;
+    }
+    .form-control{
+        width: 40%;
+        margin-top: 1%;
+    }
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #go_second_page {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        font-size: large;
+    }
+    #nameleader {
+        vertical-align: middle;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        font-size: large;
+    }
+    #inlineFormCustomSelect {
+        font-size: x-large;
+    }
+    #nameLeaderboard {
+        margin: auto;
+        display: flex;
+        vertical-align: middle;
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        font-size: x-large;
+    }
+    #item0, #item1, #item2, #item3, #item4 {
+        height: 8vw; 
+    }
+    #tip, #submit{
+        width: 15vw;
+        height: 5vw;
+    }
+    .col-xs-3{
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    #score{
+        width: 12vw;
+        height: 5vw;
+    }
+    #container_botoes{
+        margin-bottom: 2%;
+        
+    }
+    #botoes {
+        max-height: 50px;
+    }
+    #info_game{
+        margin-top: 1%;
+        font-size: 1.5vw;
+        font-weight: bolder;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    #game, #howto {
+      font-size: 5vw;
+    }
+    #rules {
+        font-size: 3vw;
+      }
+    body {
+        background-size: 50%;
+    }
+    #logo {
+        position: static;
+        width: 90%;
+    }
+    #selectbi{
+        margin-top: 8%;
+        font-size: 9vw;
+        font-weight: bolder;
+    }
+    #nameLeaderboard {
+        width: 100%;
+        font-size: large;
+    }
+    .form-control{
+        width: 70%;
+        margin-left: auto;
+        margin-top: 5%;
+    }
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+    #img_first {
+        width: 85%;
+    }
+    #text_first{
+        margin-left: 2%;
+        margin-top: 2%;
+        text-justify: auto;
+        text-align: left;
+        font-size: medium;
+        word-wrap: break-word;
+        font-weight: bolder;
+        background-color: rgba(230, 230, 230, 0.8);
+    }
+    #tip, #submit{
+        font-size: small;
+        height: 20vw;
+    }
+    #score{
+        font-size: small;
+        height: 20vw;
+    }
+    #container_botoes{
+        overflow: hidden;
+        position: fixed;
+        bottom: 1%;
+        width: 100%;
+        max-height: 300px;
+        
+    }
+    #botoes {
+        max-height: 90px;
+    }
+    #last_table{
+        margin-bottom: 30%;
+    }
+    #info_game{
+        margin-top: 8%;
+        font-size: 6vw;
+        justify-content: space-between;
+        font-weight: bolder;
+    }
+    #tip_message, #submissions, #scoreCounting{
+        font-size: x-large;
+    }
+
+  }
+
