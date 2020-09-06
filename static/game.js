@@ -151,39 +151,39 @@ function submit_answer(){
 
 function win(n){
 
-    endGame = true;
-    $("#tip").attr("disabled", true);
-    $("#submit").attr("disabled", true);
-    $("#scoreCounting").text(scores).css("color","green");
-    $('#modal_win_lose').modal('show').css('overflow-y', 'auto');
-    $('#modal_win_lose_title').text("YOU WIN!")
-    $("#win_lose").attr("src", people[person].win);
-    $('#modal_win_lose_body').html(people[person].winSentence)
-    $('#modal_win_lose_button').text("Play again!")
+    // endGame = true;
+    // $("#tip").attr("disabled", true);
+    // $("#submit").attr("disabled", true);
+    // $("#scoreCounting").text(scores).css("color","green");
+    // $('#modal_win_lose').modal('show').css('overflow-y', 'auto');
+    // $('#modal_win_lose_title').text("YOU WIN!")
+    // $("#win_lose").attr("src", people[person].win);
+    // $('#modal_win_lose_body').html(people[person].winSentence)
+    // $('#modal_win_lose_button').text("Play again!")
 
-    //make modal table
-    $("#tableWin").show();
-    $(".modal-body #tableItem0").text(goods[randomGoods[0]].name)   ; 
-    $(".modal-body #tablePriceItem0").text(convert(prices[0]));
-    $(".modal-body #tableUnitsItem0").text(qtd[0]);
-    $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));
-    $(".modal-body #tableItem1").text(goods[randomGoods[1]].name); 
-    $(".modal-body #tablePriceItem1").text(convert(prices[1]));
-    $(".modal-body #tableUnitsItem1").text(qtd[1]);
-    $(".modal-body #tableTotalItem1").text(convert(qtd[1] * prices[1]));
-    $(".modal-body #tableItem2").text(goods[randomGoods[2]].name);   
-    $(".modal-body #tablePriceItem2").text(convert(prices[2]));
-    $(".modal-body #tableUnitsItem2").text(qtd[2]);
-    $(".modal-body #tableTotalItem2").text(convert(qtd[2] * prices[2]));
-    $(".modal-body #tableItem3").text(goods[randomGoods[3]].name);  
-    $(".modal-body #tablePriceItem3").text(convert(prices[3]));
-    $(".modal-body #tableUnitsItem3").text(qtd[3]);
-    $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
-    $(".modal-body #tableTotal").text(convert(n));
-    $(".modal-body #tableAccuracy").text(((n/people[person].wealth)*100).toFixed(2)+"%");
-    $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
-    scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
-    $(".modal-body #tableTotalScore").text(scores.toLocaleString());
+    // //make modal table
+    // $("#tableWin").show();
+    // $(".modal-body #tableItem0").text(goods[randomGoods[0]].name)   ; 
+    // $(".modal-body #tablePriceItem0").text(convert(prices[0]));
+    // $(".modal-body #tableUnitsItem0").text(qtd[0]);
+    // $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));
+    // $(".modal-body #tableItem1").text(goods[randomGoods[1]].name); 
+    // $(".modal-body #tablePriceItem1").text(convert(prices[1]));
+    // $(".modal-body #tableUnitsItem1").text(qtd[1]);
+    // $(".modal-body #tableTotalItem1").text(convert(qtd[1] * prices[1]));
+    // $(".modal-body #tableItem2").text(goods[randomGoods[2]].name);   
+    // $(".modal-body #tablePriceItem2").text(convert(prices[2]));
+    // $(".modal-body #tableUnitsItem2").text(qtd[2]);
+    // $(".modal-body #tableTotalItem2").text(convert(qtd[2] * prices[2]));
+    // $(".modal-body #tableItem3").text(goods[randomGoods[3]].name);  
+    // $(".modal-body #tablePriceItem3").text(convert(prices[3]));
+    // $(".modal-body #tableUnitsItem3").text(qtd[3]);
+    // $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
+    // $(".modal-body #tableTotal").text(convert(n));
+    // $(".modal-body #tableAccuracy").text(((n/people[person].wealth)*100).toFixed(2)+"%");
+    // $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
+    // scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
+    // $(".modal-body #tableTotalScore").text(scores.toLocaleString());
 }
 
 let endGame = false;
@@ -285,45 +285,45 @@ $(function (){
     
     $(window).scrollTop(0);
     
-    //submit button
-    $("#submit").on("click", function(event){
-        if (!check_inputs()){ 
-            $("#submit").attr("disabled", true);
-        }
-        else{
-            submissions--;
-            $("#submissions").text(submissions)
-            submit_answer();
-        }        
-    })
+    // //submit button
+    // $("#submit").on("click", function(event){
+    //     if (!check_inputs()){ 
+    //         $("#submit").attr("disabled", true);
+    //     }
+    //     else{
+    //         submissions--;
+    //         $("#submissions").text(submissions)
+    //         submit_answer();
+    //     }        
+    // })
 
-    //tip button
-    $("#tip").on("click", function(event){
-        show_tip();
-        hints--;
-        $("#tip_message").text(hints)
-        if(hints < 1){
-            $("#tip").attr("disabled", true);
-        }
-    })
+    // //tip button
+    // $("#tip").on("click", function(event){
+    //     show_tip();
+    //     hints--;
+    //     $("#tip_message").text(hints)
+    //     if(hints < 1){
+    //         $("#tip").attr("disabled", true);
+    //     }
+    // })
 
-    //Call check_inputs everytime something is typed
-    $(".form-control").on('input', function() {
-        check_inputs();  
-    });
-    //set form field as true to be verified and call check_inputs
-    $('#qtd0').change(function() { form_selected[0] = true; check_inputs();});
-    $('#qtd1').change(function() { form_selected[1] = true; check_inputs();});
-    $('#qtd2').change(function() { form_selected[2] = true; check_inputs();});
-    $('#qtd3').change(function() { form_selected[3] = true; check_inputs();});
-    })
+    // //Call check_inputs everytime something is typed
+    // $(".form-control").on('input', function() {
+    //     check_inputs();  
+    // });
+    // //set form field as true to be verified and call check_inputs
+    // $('#qtd0').change(function() { form_selected[0] = true; check_inputs();});
+    // $('#qtd1').change(function() { form_selected[1] = true; check_inputs();});
+    // $('#qtd2').change(function() { form_selected[2] = true; check_inputs();});
+    // $('#qtd3').change(function() { form_selected[3] = true; check_inputs();});
+    // })
 
-    $(document).on('click', "#modal_win_lose_button", function(){
-        console.log("pressed")
-        window.location = './home.html';
-    })
-    $(document).on('click', "#modal_leaderboard_button", function(){
-        window.location = './leaderboard.html';
+    // $(document).on('click', "#modal_win_lose_button", function(){
+    //     console.log("pressed")
+    //     window.location = './home.html';
+    // })
+    // $(document).on('click', "#modal_leaderboard_button", function(){
+    //     window.location = './leaderboard.html';
     })
   
 
