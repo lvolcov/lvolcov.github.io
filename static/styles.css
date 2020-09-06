@@ -236,6 +236,8 @@ overflow-y:auto;
         font-size: 6vw;
         justify-content: space-between;
         font-weight: bolder;
+        margin-left: 1%;
+        margin-right: 1%;
     }
     #tip_message, #submissions, #scoreCounting{
         font-size: x-large;
