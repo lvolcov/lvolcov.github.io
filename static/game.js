@@ -96,158 +96,158 @@ let scores = 10000;
 
 function  check_inputs() {
     
-    // qtd = [$("#qtd0").serializeArray()[0].value, $("#qtd1").serializeArray()[0].value, $("#qtd2").serializeArray()[0].value, $("#qtd3").serializeArray()[0].value];
-    // valid = [$("#valid0"), $("#valid1"), $("#valid2"), $("#valid3")];
+    qtd = [$("#qtd0").serializeArray()[0].value, $("#qtd1").serializeArray()[0].value, $("#qtd2").serializeArray()[0].value, $("#qtd3").serializeArray()[0].value];
+    valid = [$("#valid0"), $("#valid1"), $("#valid2"), $("#valid3")];
 
-    // let correct = true; 
-    // for (let x = 0; x < qtd.length; x++){
-    //     const fields = form_selected.reduce((a, b) => a + b, 0)
-    //     if(form_selected[x]){
-    //         if ( qtd[x] == null || !(Number.isSafeInteger(qtd[x]*1)) || qtd[x].indexOf("-") === 0 || qtd[x] === ""){
-    //             correct = false;
-    //             valid[x].text("Input not valid")
-    //         }
-    //         else{
-    //             qtd[x] = parseInt(qtd[x])
-    //             valid[x].html("&nbsp;")
-    //         }
-    //     }
-    //     else if (fields < 3){
-    //         correct = false;
-    //     }
-    // }
-    // if(correct && !endGame){$("#submit").removeAttr("disabled");}
-    // if(!correct) {$("#submit").attr("disabled", true);}
-    // return correct
+    let correct = true; 
+    for (let x = 0; x < qtd.length; x++){
+        const fields = form_selected.reduce((a, b) => a + b, 0)
+        if(form_selected[x]){
+            if ( qtd[x] == null || !(Number.isSafeInteger(qtd[x]*1)) || qtd[x].indexOf("-") === 0 || qtd[x] === ""){
+                correct = false;
+                valid[x].text("Input not valid")
+            }
+            else{
+                qtd[x] = parseInt(qtd[x])
+                valid[x].html("&nbsp;")
+            }
+        }
+        else if (fields < 3){
+            correct = false;
+        }
+    }
+    if(correct && !endGame){$("#submit").removeAttr("disabled");}
+    if(!correct) {$("#submit").attr("disabled", true);}
+    return correct
 }
 
 function submit_answer(){
-    // check_inputs();
-    // let sum_answer = 0
-    // for (let x = 0; x < qtd.length; x++){
-    //     sum_answer += (qtd[x] * prices[x]);
-    // }
-    // if (sum_answer <= target && sum_answer >= (target*0.9)){
-    //     win(sum_answer);
-    // }
-    // else if (submissions > 0 && scores > 500){
-    //     scores_penalty(-500);
-    //     wrong_answer(sum_answer);
-    // }
-    // else{
-    //     lose();
-    // }
+    check_inputs();
+    let sum_answer = 0
+    for (let x = 0; x < qtd.length; x++){
+        sum_answer += (qtd[x] * prices[x]);
+    }
+    if (sum_answer <= target && sum_answer >= (target*0.9)){
+        win(sum_answer);
+    }
+    else if (submissions > 0 && scores > 500){
+        scores_penalty(-500);
+        wrong_answer(sum_answer);
+    }
+    else{
+        lose();
+    }
 }
 
 function win(n){
 
-    // endGame = true;
-    // $("#tip").attr("disabled", true);
-    // $("#submit").attr("disabled", true);
-    // $("#scoreCounting").text(scores).css("color","green");
-    // $('#modal_win_lose').modal('show').css('overflow-y', 'auto');
-    // $('#modal_win_lose_title').text("YOU WIN!")
-    // $("#win_lose").attr("src", people[person].win);
-    // $('#modal_win_lose_body').html(people[person].winSentence)
-    // $('#modal_win_lose_button').text("Play again!")
+    endGame = true;
+    $("#tip").attr("disabled", true);
+    $("#submit").attr("disabled", true);
+    $("#scoreCounting").text(scores).css("color","green");
+    $('#modal_win_lose').modal('show').css('overflow-y', 'auto');
+    $('#modal_win_lose_title').text("YOU WIN!")
+    $("#win_lose").attr("src", people[person].win);
+    $('#modal_win_lose_body').html(people[person].winSentence)
+    $('#modal_win_lose_button').text("Play again!")
 
-    // //make modal table
-    // $("#tableWin").show();
-    // $(".modal-body #tableItem0").text(goods[randomGoods[0]].name)   ; 
-    // $(".modal-body #tablePriceItem0").text(convert(prices[0]));
-    // $(".modal-body #tableUnitsItem0").text(qtd[0]);
-    // $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));
-    // $(".modal-body #tableItem1").text(goods[randomGoods[1]].name); 
-    // $(".modal-body #tablePriceItem1").text(convert(prices[1]));
-    // $(".modal-body #tableUnitsItem1").text(qtd[1]);
-    // $(".modal-body #tableTotalItem1").text(convert(qtd[1] * prices[1]));
-    // $(".modal-body #tableItem2").text(goods[randomGoods[2]].name);   
-    // $(".modal-body #tablePriceItem2").text(convert(prices[2]));
-    // $(".modal-body #tableUnitsItem2").text(qtd[2]);
-    // $(".modal-body #tableTotalItem2").text(convert(qtd[2] * prices[2]));
-    // $(".modal-body #tableItem3").text(goods[randomGoods[3]].name);  
-    // $(".modal-body #tablePriceItem3").text(convert(prices[3]));
-    // $(".modal-body #tableUnitsItem3").text(qtd[3]);
-    // $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
-    // $(".modal-body #tableTotal").text(convert(n));
-    // $(".modal-body #tableAccuracy").text(((n/people[person].wealth)*100).toFixed(2)+"%");
-    // $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
-    // scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
-    // $(".modal-body #tableTotalScore").text(scores.toLocaleString());
+    //make modal table
+    $("#tableWin").show();
+    $(".modal-body #tableItem0").text(goods[randomGoods[0]].name)   ; 
+    $(".modal-body #tablePriceItem0").text(convert(prices[0]));
+    $(".modal-body #tableUnitsItem0").text(qtd[0]);
+    $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));
+    $(".modal-body #tableItem1").text(goods[randomGoods[1]].name); 
+    $(".modal-body #tablePriceItem1").text(convert(prices[1]));
+    $(".modal-body #tableUnitsItem1").text(qtd[1]);
+    $(".modal-body #tableTotalItem1").text(convert(qtd[1] * prices[1]));
+    $(".modal-body #tableItem2").text(goods[randomGoods[2]].name);   
+    $(".modal-body #tablePriceItem2").text(convert(prices[2]));
+    $(".modal-body #tableUnitsItem2").text(qtd[2]);
+    $(".modal-body #tableTotalItem2").text(convert(qtd[2] * prices[2]));
+    $(".modal-body #tableItem3").text(goods[randomGoods[3]].name);  
+    $(".modal-body #tablePriceItem3").text(convert(prices[3]));
+    $(".modal-body #tableUnitsItem3").text(qtd[3]);
+    $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
+    $(".modal-body #tableTotal").text(convert(n));
+    $(".modal-body #tableAccuracy").text(((n/people[person].wealth)*100).toFixed(2)+"%");
+    $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
+    scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
+    $(".modal-body #tableTotalScore").text(scores.toLocaleString());
 }
 
 let endGame = false;
 function lose(){
-    // endGame = true;
-    // $("#tip").attr("disabled", true);
-    // $("#submit").attr("disabled", true);
-    // scores = 0
-    // $("#scoreCounting").text(scores).css("color","red");
-    // $('#modal_win_lose').modal('show');
-    // $('#modal_win_lose_title').text("YOU LOSE!")
-    // $("#win_lose").attr("src", people[person].lose);
-    // $('#modal_win_lose_body').html(people[person].name + " is really disappointed with you!<br> You were his last hope, now he doesn't know how to spend all his humongous amount of money and sees himself obligated to live the rest of his life with the guilt of being so rich while you... <br>Well, you're not...")
-    // $('#modal_win_lose_button').text("Try again!")
+    endGame = true;
+    $("#tip").attr("disabled", true);
+    $("#submit").attr("disabled", true);
+    scores = 0
+    $("#scoreCounting").text(scores).css("color","red");
+    $('#modal_win_lose').modal('show');
+    $('#modal_win_lose_title').text("YOU LOSE!")
+    $("#win_lose").attr("src", people[person].lose);
+    $('#modal_win_lose_body').html(people[person].name + " is really disappointed with you!<br> You were his last hope, now he doesn't know how to spend all his humongous amount of money and sees himself obligated to live the rest of his life with the guilt of being so rich while you... <br>Well, you're not...")
+    $('#modal_win_lose_button').text("Try again!")
 
 }
 
 function wrong_answer(n){
-    // if (n < (target*0.9)){
-    //     $("#text_wrong").text("You need to spend more money!")
-    //     $('#wrong').modal('show');
-    // }
-    // else {
-    //     $("#text_wrong").text("You have to spend less money!")
-    //     $('#wrong').modal('show');
-    // }   
+    if (n < (target*0.9)){
+        $("#text_wrong").text("You need to spend more money!")
+        $('#wrong').modal('show');
+    }
+    else {
+        $("#text_wrong").text("You have to spend less money!")
+        $('#wrong').modal('show');
+    }   
 }
 
 let tips = [true, true, true, true]
 let tipsFields, tables;
 function show_tip(){
-    // tipsFields = [$("#tip0"), $("#tip1"), $("#tip2"), $("#tip3")];
-    // tables = [$("#table0"), $("#table1"), $("#table2"), $("#table3")];
-    // if(tips.reduce((a, b) => a + b, 0) < 1) {return;}
-    // if(hints < 1) {return}
-    // let x = true;
-    // while (x) {
-    //     let n = Math.floor(Math.random() * 4);
-    //     if(tips[n]){
-    //         tips[n] = false;
-    //         $("body,html").animate(
-    //             {
-    //               scrollTop: $(tables[n]).offset().top
-    //             },
-    //             800 //speed
-    //           );
-    //         scores_penalty(-1000);
-    //         tipsFields[n].fadeOut().fadeIn().fadeOut().fadeIn();
-    //         tipsFields[n].html("Price: " + convert(goods[randomGoods[n]].price))
-    //         x = false;
-    //     }
-    // }
+    tipsFields = [$("#tip0"), $("#tip1"), $("#tip2"), $("#tip3")];
+    tables = [$("#table0"), $("#table1"), $("#table2"), $("#table3")];
+    if(tips.reduce((a, b) => a + b, 0) < 1) {return;}
+    if(hints < 1) {return}
+    let x = true;
+    while (x) {
+        let n = Math.floor(Math.random() * 4);
+        if(tips[n]){
+            tips[n] = false;
+            $("body,html").animate(
+                {
+                  scrollTop: $(tables[n]).offset().top
+                },
+                800 //speed
+              );
+            scores_penalty(-1000);
+            tipsFields[n].fadeOut().fadeIn().fadeOut().fadeIn();
+            tipsFields[n].html("Price: " + convert(goods[randomGoods[n]].price))
+            x = false;
+        }
+    }
 }
 
 function scores_penalty(n){
 
-    // scores += n;
-    // $("#scoreCounting").text(scores);
-    // $("#score").css("color","red").fadeOut().fadeIn().fadeOut().fadeIn().queue(function() {
-    //     $("#score").css("color","white").dequeue();
-    //   });;
-    // if(scores < 0) {lose();}
+    scores += n;
+    $("#scoreCounting").text(scores);
+    $("#score").css("color","red").fadeOut().fadeIn().fadeOut().fadeIn().queue(function() {
+        $("#score").css("color","white").dequeue();
+      });;
+    if(scores < 0) {lose();}
 }
 
 let waitingTime = 10;
-// var x = setInterval(function() {
+var x = setInterval(function() {
 
-//     if (waitingTime >= 1){ waitingTime--; }
-//     else if (!endGame) {
-//         $("#scoreCounting").text(scores);
-//         if (scores <= 0) { lose(); }
-//         else { scores -= 10; }
-//     }
-//   }, 1000);
+    if (waitingTime >= 1){ waitingTime--; }
+    else if (!endGame) {
+        $("#scoreCounting").text(scores);
+        if (scores <= 0) { lose(); }
+        else { scores -= 10; }
+    }
+  }, 1000);
 
 
 const prices = [];
@@ -275,45 +275,45 @@ $(function (){
     
     $(window).scrollTop(0);
     
-    // //submit button
-    // $("#submit").on("click", function(event){
-    //     if (!check_inputs()){ 
-    //         $("#submit").attr("disabled", true);
-    //     }
-    //     else{
-    //         submissions--;
-    //         $("#submissions").text(submissions)
-    //         submit_answer();
-    //     }        
-    // })
+    //submit button
+    $("#submit").on("click", function(event){
+        if (!check_inputs()){ 
+            $("#submit").attr("disabled", true);
+        }
+        else{
+            submissions--;
+            $("#submissions").text(submissions)
+            submit_answer();
+        }        
+    })
 
-    // //tip button
-    // $("#tip").on("click", function(event){
-    //     show_tip();
-    //     hints--;
-    //     $("#tip_message").text(hints)
-    //     if(hints < 1){
-    //         $("#tip").attr("disabled", true);
-    //     }
-    // })
+    //tip button
+    $("#tip").on("click", function(event){
+        show_tip();
+        hints--;
+        $("#tip_message").text(hints)
+        if(hints < 1){
+            $("#tip").attr("disabled", true);
+        }
+    })
 
-    // //Call check_inputs everytime something is typed
-    // $(".form-control").on('input', function() {
-    //     check_inputs();  
-    // });
-    // //set form field as true to be verified and call check_inputs
-    // $('#qtd0').change(function() { form_selected[0] = true; check_inputs();});
-    // $('#qtd1').change(function() { form_selected[1] = true; check_inputs();});
-    // $('#qtd2').change(function() { form_selected[2] = true; check_inputs();});
-    // $('#qtd3').change(function() { form_selected[3] = true; check_inputs();});
-    // })
+    //Call check_inputs everytime something is typed
+    $(".form-control").on('input', function() {
+        check_inputs();  
+    });
+    //set form field as true to be verified and call check_inputs
+    $('#qtd0').change(function() { form_selected[0] = true; check_inputs();});
+    $('#qtd1').change(function() { form_selected[1] = true; check_inputs();});
+    $('#qtd2').change(function() { form_selected[2] = true; check_inputs();});
+    $('#qtd3').change(function() { form_selected[3] = true; check_inputs();});
+    })
 
-    // $(document).on('click', "#modal_win_lose_button", function(){
-    //     console.log("pressed")
-    //     window.location = './home.html';
-    // })
-    // $(document).on('click', "#modal_leaderboard_button", function(){
-    //     window.location = './leaderboard.html';
+    $(document).on('click', "#modal_win_lose_button", function(){
+        console.log("pressed")
+        window.location = './home.html';
+    })
+    $(document).on('click', "#modal_leaderboard_button", function(){
+        window.location = './leaderboard.html';
     })
   
 
