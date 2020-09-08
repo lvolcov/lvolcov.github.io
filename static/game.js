@@ -153,7 +153,7 @@ function win(n){
 
     //make modal table
     $("#tableWin").show();
-    $(".modal-body #tableItem0").text(goods[randomGoods[0]].name)   ; 
+    $(".modal-body #tableItem0").text(goods[randomGoods[0]].name); 
     $(".modal-body #tablePriceItem0").text(convert(prices[0]));
     $(".modal-body #tableUnitsItem0").text(qtd[0]);
     $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));

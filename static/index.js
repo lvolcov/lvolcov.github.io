@@ -21,10 +21,6 @@ const people = [
     }           
 ];
 
-function appendData (data){
-    $( "#data" ).html( data );
-}
-
 let name;
 function  check_inputs() {
     
@@ -39,13 +35,15 @@ function  check_inputs() {
 
 $(function (){
     let index;
-    $("#info_person").hide()
-    $("#footer").hide()
+    $("#data").css( "display", "none" );
+    $("#info_person").css( "display", "none" );
+    $("#footer").css( "display", "none" );
 
     $("#inlineFormCustomSelect").on("change", function(event){
         index = event.currentTarget.value
         const person = people[index]
-        if(check_inputs()) { $("#next").removeAttr("disabled"); }        
+        if(check_inputs()) { $("#next").removeAttr("disabled"); }  
+        $("#leaderboard").css( "display", "none" );      
         $("#footer").show();
         $("#info_person").show()
         $("#img_first").attr("src", person.image)
@@ -59,7 +57,7 @@ $(function (){
         }
         else{
             if(index >= 0 && index < 5){
-                window.location = './rules.html?billionaire='+ index;
+                window.location = './game.html?billionaire='+ index;
             }
         }
     })
@@ -70,10 +68,56 @@ $(function (){
         jQuery(this).val(return_text);
         
         check_inputs();  
-        if(check_inputs() && index >= 0) { $("#next").removeAttr("disabled"); }  
+        if(check_inputs() && index >= 0) { $("#next").removeAttr("disabled"); $("#leaderboard").css( "display", "none" ); }  
     });
 
     $('#nameLeaderboard').change(function() { 
         check_inputs();
     });
+
+
+    
+
+    $("#play").on("click", function(event){
+        $("#play").css( "display", "none" );
+        $("#billionaireImgs").css( "display", "none" );
+        $("#infoGame").css( "display", "none" );
+        $("#data").css( "display", "" );
+        if(index >= 0) {$("#leaderboard").css( "display", "none" )}
+    })
+
+    $("#back").on("click", function(event){
+        $("#play").css( "display", "" );
+        $("#billionaireImgs").css( "display", "" );
+        $("#infoGame").css( "display", "" );
+        $("#data").css( "display", "none" );
+        $("#leaderboard").css( "display", "" )
+    })
+
+    $("#leaderboardImg").on("click", function(event){
+        $('html,body').animate({scrollTop: document.body.scrollHeight},1100);
+        
+    })
+    
+
 })
+
+// got it from https://mdbootstrap.com/snippets/jquery/ascensus/453950
+$.getJSON("https://spreadsheets.google.com/feeds/list/1voiXrIwNAZydZbCwZYT4xEakryd0S4E9ZHAHKKCPjJI/1/public/values?alt=json", function (data) {
+
+      var sheetData = data.feed.entry;
+
+      var i;
+      for (i = 0; i < sheetData.length; i++) {
+
+        var date = data.feed.entry[i]['gsx$timestamp']['$t'];
+        var name = data.feed.entry[i]['gsx$name']['$t'];
+        var billionaire = data.feed.entry[i]['gsx$choice']['$t'];
+        var attempts = data.feed.entry[i]['gsx$attempts']['$t'];
+        var tips_used = data.feed.entry[i]['gsx$tips']['$t'];
+        var final_score = data.feed.entry[i]['gsx$scorefinal']['$t'];
+
+        document.getElementById('data_leaderboard').innerHTML += ('<tr>'+'<td>'+Number(i+1)+'</td>'+'<td>'+name+'</td>'+'<td>'+attempts+'</td>'+'<td>'+tips_used+'</td>'+'<td>'+final_score+'</td>'+'<td>'+billionaire+'</td>'+'<td>'+date+'</td>'+'</tr>');
+
+      }
+    });

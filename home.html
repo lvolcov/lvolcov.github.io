@@ -17,13 +17,47 @@
 	<a href="./home.html">
 		<img id="logo" src="./images/logo.gif">
 	</a>
+	<div id="billionaireImgs" class="flex-container">
+		<div class="row">
+			<div class="col-xs-2" style="width: 18%; height: 80%;"><img id="billionaire" src="./images/jeff.png"></div>&nbsp;
+			<div class="col-xs-2" style="width: 18%; height: 80%;"><img id="billionaire" src="./images/gates.png"></div>&nbsp;
+			<div class="col-xs-2" style="width: 18%; height: 80%;"><img id="billionaire" src="./images/mark.png"></div>&nbsp;
+			<div class="col-xs-2" style="width: 18%; height: 80%;"><img id="billionaire" src="./images/larry.png"></div>&nbsp;
+			<div class="col-xs-2" style="width: 18%; height: 80%;"><img id="billionaire" src="./images/musk.png"></div>
+		</div>
+	</div>
+
+	<div id="infoGame">
+
+		<div id="howto">How to play:</div>
+		<ul id="rules">
+			<li>
+				<p id="list">You will receive four random items and have to answer how many of each one you want to buy.
+				</p>
+			</li>
+			<li>
+				<p id="list">Your goal is to spend at least 90% of your choosen billionaire's money, but no more than
+					100%.</p>
+			</li>
+			<li>
+				<p id="list">You will have 5 chances to submit your answer and you can ask for 3 hints, but it will cost
+					you points!</p>
+			</li>
+		</ul>
+	</div>
+
+	<button id="play" type="button" class="btn btn-success btn-lg" style="font-size: xx-large;">START GAME</button>
+
 	<div id="data">
-		<br><br><br>
-		<div class="flex-container">
+		<div id="SelectBiHome" class="flex-container">
+			<div id="backButton">
+				<button id="back" type="button" class="btn btn-success" style="font-size: x-large;">Back</button>
+			</div>
 			<div id="nameleader" class="form-inline col-sm-5">
-				<input class="form-control " id="nameLeaderboard" type="text" placeholder="Name for the Leaderboard" maxlength="14">
-			</div>&nbsp;
-			<div id="go_second_page">
+				<input class="form-control " id="nameLeaderboard" type="text" placeholder="Name for the Leaderboard"
+					maxlength="14">
+			</div>
+			<div id="go_second_page" >
 				<select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
 					<option value="" disabled selected>Choose your billionaire: &nbsp</option>
 					<option value="0">Jeff Bezos</option>
@@ -32,12 +66,12 @@
 					<option value="3">Larry Page</option>
 					<option value="4">Elon Musk</option>
 				</select>
-			</div><br>&nbsp;
-			<div>
+			</div><br>
+			<div id="nextButton">
 				<button id="next" type="button" class="btn btn-success" style="font-size: x-large;"
 					disabled>Next</button>
 			</div>
-		</div><br> <br>
+		</div>
 		<div id="info_person" class="flex-container">
 			<div><img id="img_first" src=""></div>
 			<div id="text_first"></div>
@@ -46,6 +80,29 @@
 			<span>Source: Wikipedia</span>
 		</footer>
 	</div>
+
+	<div id="leaderboard" class="container text-center my-4">
+		<img id="leaderboardImg" src="./images/leaderboard.gif">
+		<!-- Table  -->
+		<table class="table table-bordered table-striped table-responsive-sm" style="background-color: white;"
+			id="testTable">
+			<!-- Table head -->
+			<thead class="thead-dark">
+				<tr>
+					<th>POS</th>
+					<th>Player</th>
+					<th>Attempts</th>
+					<th>Tips used</th>
+					<th>Final Score</th>
+					<th>Billionaire choosed</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody id="data_leaderboard">
+			</tbody>
+		</table>
+	</div>
+
 </body>
 
 </html>

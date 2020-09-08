@@ -9,21 +9,18 @@ body {
     font-weight: bolder;
     padding: 20px;
 }
+#infoGame{
+    background-color: rgba(214, 252, 209, 0.829);
+}
 #howto
 {
-    margin-left: 10%;
-    margin-right: 10%;
     text-align: left;
     font-weight: bolder;
 }
 #rules
 {
-    list-style-type: circle;
-    margin-left: 10%;
-    margin-right: 10%;
     text-align: left;
     font-weight: bolder;
-    font-size: 1.3vw;
 }
 
 .form-control{
@@ -38,7 +35,7 @@ body {
     font-size: x-large;
     word-wrap: break-word;
     font-weight: bolder;
-    background-color: rgba(230, 230, 230, 0.8);
+    background-color: rgba(214, 252, 209, 0.829);
 }
 
 #item0, #item1, #item2, #item3, #item4, #id, #submit, #tip, #botoes {
@@ -48,11 +45,20 @@ body {
     align-items: center; 
     justify-content: center;
 }
+#billionaireImgs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    margin-left: 10%;
+    margin-right: 5%;
+    margin-bottom: 2%;
+}
 
 
-li span, #game span, #howto span, #select span, #footer span, #selectbi span, #info_game span
+#game span, #select span, #footer span, #selectbi span, #info_game span
 {
-    background-color: rgba(230, 230, 230, 0.8);
+    background-color: rgba(214, 252, 209, 0.829);
 }
 
 #tip0, #tip1, #tip2, #tip3 {
@@ -76,12 +82,17 @@ overflow-y:auto;
         margin-right: 5%;
         margin-left: 5%;
     }
+    #infoGame{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
     #game, #howto {
       font-size: 2vw;
     }
-    #rules {
-        font-size: 1.5vw;
-      }
+    #rules
+    {
+    font-size: x-large;
+    }
     body {
         background-size: 10%;
     }
@@ -89,16 +100,11 @@ overflow-y:auto;
         position: static;
         width: 40%;
     }
-    #selectbi{
-        margin-top: 1%;
-        font-size: 2vw;
-        font-weight: bolder;
-    }
     .form-control{
         width: 40%;
         margin-top: 1%;
     }
-    .flex-container {
+    #info_person {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -107,7 +113,7 @@ overflow-y:auto;
         margin-right: 5%;
     }
     #go_second_page {
-        width: 40%;
+        width: 100%;
         display: flex;
         justify-content: center;
         font-size: large;
@@ -153,6 +159,21 @@ overflow-y:auto;
     #botoes {
         max-height: 50px;
     }
+    #SelectBiHome{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #billionaire{
+        width: 70%;
+    }
+    #leaderboardImg{
+        cursor:pointer;
+    }
     #info_game{
         margin-top: 1%;
         font-size: 1.5vw;
@@ -160,13 +181,19 @@ overflow-y:auto;
     }
   }
   
+  
   @media screen and (max-width: 600px) {
     #game, #howto {
       font-size: 5vw;
     }
-    #rules {
-        font-size: 3vw;
-      }
+    #infoGame{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #rules
+    {
+    font-size: small;
+    }
     body {
         background-size: 50%;
     }
@@ -188,7 +215,7 @@ overflow-y:auto;
         margin-left: auto;
         margin-top: 5%;
     }
-    .flex-container {
+    #info_person {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -231,6 +258,7 @@ overflow-y:auto;
     #last_table{
         margin-bottom: 30%;
     }
+
     #info_game{
         margin-top: 8%;
         font-size: 6vw;
@@ -241,6 +269,42 @@ overflow-y:auto;
     }
     #tip_message, #submissions, #scoreCounting{
         font-size: x-large;
+    }
+
+    #leaderboardImg{
+        width: 100%;
+        cursor:pointer;
+    }
+    #SelectBiHome{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    div#nameleader{order: 1;}
+    div#go_second_page{order: 2;}
+    div#backButton{order: 3;}
+    div#nextButton{order: 4;}
+
+    #go_second_page{
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+
+    #backButton{
+        margin-right: 5%;
+        margin-top: 10%;
+    }
+    #nextButton{
+        margin-left: 5%;
+        margin-top: 10%;
+    }
+    #billionaire{
+        width: 100%;
     }
 
   }
