@@ -304,7 +304,6 @@ $(function (){
 
     //tip button
     $("#tip").on("click", function(event){
-        submitLeaderboard();
         show_tip();
         hints--;
         $("#tip_message").text(hints)
