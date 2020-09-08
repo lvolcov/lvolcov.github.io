@@ -25,7 +25,6 @@ let name;
 function  check_inputs() {
     
     name = $("#nameLeaderboard")[0].value
-    console.log(name)
     if (name == null || name === ""){ 
         $("#next").attr("disabled", true); 
         return false 
@@ -33,11 +32,20 @@ function  check_inputs() {
     else { return true }
 }
 
+function leaderboardScroll(){
+    const scrollForLeaderboard = window.location.search.substring(1);
+    if (scrollForLeaderboard === "leaderboard"){
+        $('html,body').animate({scrollTop: document.body.scrollHeight},1100);
+    }
+}
+
 $(function (){
     let index;
     $("#data").css( "display", "none" );
     $("#info_person").css( "display", "none" );
     $("#footer").css( "display", "none" );
+    $("#inlineFormCustomSelect").prop('selectedIndex', 0)
+    leaderboardScroll();
 
     $("#inlineFormCustomSelect").on("change", function(event){
         index = event.currentTarget.value
@@ -57,7 +65,15 @@ $(function (){
         }
         else{
             if(index >= 0 && index < 5){
-                window.location = './game.html?billionaire='+ index;
+
+
+                //got from https://gist.github.com/joecliff/10948117#file-cryptojs_base64_encrypt_decrypt-js
+                let nameCrypt = "ensuring_that_the_name_" + name + "_is_correct"
+                const billionaireChoosed = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(index));
+                nameCrypt = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(nameCrypt));
+
+
+                window.location = './game.html?'+ billionaireChoosed + '#' + nameCrypt;
             }
         }
     })
@@ -121,3 +137,7 @@ $.getJSON("https://spreadsheets.google.com/feeds/list/1voiXrIwNAZydZbCwZYT4xEakr
 
       }
     });
+
+
+    
+    

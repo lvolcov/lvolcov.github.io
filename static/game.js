@@ -48,15 +48,28 @@ goods[18] = new Goods("Pay the ", "Brazillian indenpendence fee paid to portugal
 
 
 //Get name from link
-let person = window.location.search.substring(1);
-const index = person.indexOf("=") + 1
-person = person[index]
-//answer target
-const target = people[person].wealth;
-//Check
-if(!(person >= 0 && person < 5)){
-    window.location = "./home.html";
+//got from https://gist.github.com/joecliff/10948117#file-cryptojs_base64_encrypt_decrypt-js
+//decrypt
+let person;
+let playerName;
+try{
+
+    person = window.location.search.substring(1);
+    person = CryptoJS.enc.Base64.parse(person).toString(CryptoJS.enc.Utf8);
+    playerName = window.location.hash.substring(1);
+    playerName = CryptoJS.enc.Base64.parse(playerName).toString(CryptoJS.enc.Utf8);
+    playerName = playerName.split("_")[4];
+
+    //Check
+    if(!(person >= 0 && person < 5)){
+        alert("Please, don't touch the URL!");
+        window.location = './index.html';
+    }
 }
+catch(err) {
+    alert("Please, don't touch the URL!");
+    window.location = './index.html';
+    }
 
 //Convert currency
 const formatter = new Intl.NumberFormat('en-US', {
@@ -121,6 +134,7 @@ function  check_inputs() {
     return correct
 }
 
+const target = people[person].wealth;
 function submit_answer(){
     check_inputs();
     let sum_answer = 0
@@ -174,6 +188,7 @@ function win(n){
     $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
     scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
     $(".modal-body #tableTotalScore").text(scores.toLocaleString());
+    submitLeaderboard();
 }
 
 let endGame = false;
@@ -289,6 +304,7 @@ $(function (){
 
     //tip button
     $("#tip").on("click", function(event){
+        submitLeaderboard();
         show_tip();
         hints--;
         $("#tip_message").text(hints)
@@ -309,34 +325,28 @@ $(function (){
     })
 
     $(document).on('click', "#modal_win_lose_button", function(){
-        console.log("pressed")
-        window.location = './home.html';
+        window.location = './index.html';
     })
     $(document).on('click', "#modal_leaderboard_button", function(){
-        window.location = './leaderboard.html';
+        window.location = './index.html?'+"leaderboard";
     })
-  
 
+//upload leaderboard
+//Got it from https://dev.to/omerlahav/submit-a-form-to-a-google-spreadsheet-1bia
 
-    //Launch modal
-    //$('#modal_lose').modal('show');
-
-
-
-    //upload leaderboard
-//     const scriptURL = 'https://script.google.com/macros/s/AKfycbw48zi9ewBO06ZZvg0lXYsH5Xd2lIY5eyg5jAISQMWLBGjiwX0/exec'
-//     let formData = new FormData();
-//       formData.append("name", "test");
-//       formData.append("attempts",33);
-//       formData.append("tips", 2);
-//       formData.append("scorefinal", 0500);
-//       formData.append("choice", 0);
-//     $('#submit').on("click", e => {
-//     e.preventDefault()
-//     fetch(scriptURL, { method: 'POST', body: formData})
-//         .then(response => console.log('Success!', response))
-//         .catch(error => console.error('Error!', error.message))
-// })
+function submitLeaderboard (){
+    console.log("ta subindo")
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw48zi9ewBO06ZZvg0lXYsH5Xd2lIY5eyg5jAISQMWLBGjiwX0/exec'
+let formData = new FormData();
+    formData.append("name", playerName);
+    formData.append("attempts", 5-submissions);
+    formData.append("tips", 3-hints);
+    formData.append("scorefinal", scores);
+    formData.append("choice", people[person].name);
+fetch(scriptURL, { method: 'POST', body: formData})
+    .then(response => console.log('Success!', response))
+    .catch(error => console.error('Error!', error.message))
+}
 
 
 
