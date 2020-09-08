@@ -77,7 +77,7 @@ body {
 overflow-y:auto;
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 1051px) {
     body {
         margin-right: 5%;
         margin-left: 5%;
@@ -183,7 +183,7 @@ overflow-y:auto;
   }
   
   
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1050px) {
     #infoGame{
         margin-left: 5%;
         margin-right: 5%;
