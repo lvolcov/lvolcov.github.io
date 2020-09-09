@@ -38,7 +38,14 @@ body {
     background-color: rgba(214, 252, 209, 0.829);
 }
 
-#item0, #item1, #item2, #item3, #item4, #id, #submit, #tip, #botoes {
+#item0, #item1, #item2, #item3, #item4, #id, #botoes {
+    font-weight: bolder; 
+    font-size: large;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+#submit, #tip {
     font-weight: bolder; 
     font-size: large;
     display: flex; 
@@ -308,3 +315,13 @@ overflow-y:auto;
 
   }
 
+  @media only screen and (max-width: 1025px) and (min-width: 760px){
+    #tip, #submit{
+        font-size: small;
+        height: 10vw;
+    }
+    #score{
+        font-size: small;
+        height: 10vw;
+    }
+   }

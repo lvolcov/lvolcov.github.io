@@ -59,9 +59,7 @@ try{
     playerName = window.location.hash.substring(1);
     playerName = CryptoJS.enc.Base64.parse(playerName).toString(CryptoJS.enc.Utf8);
     playerName = playerName.split("_")[4];
-
-    console.log(person)
-    console.log(playerName)
+    
     //Check
     if(((!(person >= 0 && person < 5)) || playerName === "" || playerName == null || person == null || person === "")){
         alert("Please, don't touch the URL!");
