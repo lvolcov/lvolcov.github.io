@@ -167,19 +167,19 @@ function win(n){
 
     //make modal table
     $("#tableWin").show();
-    $(".modal-body #tableItem0").text(goods[randomGoods[0]].name); 
+    $(".modal-body #tableItem0").html(`<a href=${goods[randomGoods[0]].source} target="_blank">${goods[randomGoods[0]].name}</a>`); 
     $(".modal-body #tablePriceItem0").text(convert(prices[0]));
     $(".modal-body #tableUnitsItem0").text(qtd[0]);
     $(".modal-body #tableTotalItem0").text(convert(qtd[0] * prices[0]));
-    $(".modal-body #tableItem1").text(goods[randomGoods[1]].name); 
+    $(".modal-body #tableItem1").html(`<a href=${goods[randomGoods[1]].source} target="_blank">${goods[randomGoods[1]].name}</a>`); 
     $(".modal-body #tablePriceItem1").text(convert(prices[1]));
     $(".modal-body #tableUnitsItem1").text(qtd[1]);
     $(".modal-body #tableTotalItem1").text(convert(qtd[1] * prices[1]));
-    $(".modal-body #tableItem2").text(goods[randomGoods[2]].name);   
+    $(".modal-body #tableItem2").html(`<a href=${goods[randomGoods[2]].source} target="_blank">${goods[randomGoods[2]].name}</a>`); 
     $(".modal-body #tablePriceItem2").text(convert(prices[2]));
     $(".modal-body #tableUnitsItem2").text(qtd[2]);
     $(".modal-body #tableTotalItem2").text(convert(qtd[2] * prices[2]));
-    $(".modal-body #tableItem3").text(goods[randomGoods[3]].name);  
+    $(".modal-body #tableItem3").html(`<a href=${goods[randomGoods[3]].source} target="_blank">${goods[randomGoods[3]].name}</a>`); 
     $(".modal-body #tablePriceItem3").text(convert(prices[3]));
     $(".modal-body #tableUnitsItem3").text(qtd[3]);
     $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
