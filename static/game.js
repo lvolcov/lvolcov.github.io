@@ -152,6 +152,17 @@ function submit_answer(){
         lose();
     }
 }
+function variety(sumTotal, item0, item1, item2, item3) {
+    let calc = Math.sqrt(((((item0/sumTotal)-0.25)*((item0/sumTotal)-0.25))+(((item1/sumTotal)-0.25)*((item1/sumTotal)-0.25))+(((item2/sumTotal)-0.25)*((item2/sumTotal)-0.25))+(((item3/sumTotal)-0.25)*((item3/sumTotal)-0.25)))/4);
+    if (Number(((0.433 - calc)/0.433)*0.25) >= 0){
+        return Number(((0.433 - calc)/0.433)*0.25)
+    }
+    else{
+        return 0
+    }
+    
+}
+
 
 function win(n){
 
@@ -165,6 +176,7 @@ function win(n){
     $('#modal_win_lose_body').html(people[person].winSentence)
     $('#modal_win_lose_button').text("Play again!")
 
+    const varietyPerc = variety(n, qtd[0] * prices[0], qtd[1] * prices[1], qtd[2] * prices[2], qtd[3] * prices[3])
     //make modal table
     $("#tableWin").show();
     $(".modal-body #tableItem0").html(`<a href=${goods[randomGoods[0]].source} target="_blank">${goods[randomGoods[0]].name}</a>`); 
@@ -184,9 +196,11 @@ function win(n){
     $(".modal-body #tableUnitsItem3").text(qtd[3]);
     $(".modal-body #tableTotalItem3").text(convert(qtd[3] * prices[3]));
     $(".modal-body #tableTotal").text(convert(n));
+    $(".modal-body #variety").text((varietyPerc*100).toFixed(2)+"%");
     $(".modal-body #tableAccuracy").text(((n/people[person].wealth)*100).toFixed(2)+"%");
     $(".modal-body #tableBonus").text(Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)).toLocaleString());
-    scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90))
+    $(".modal-body #bonusVariety").text(Math.ceil(scores * varietyPerc * 3).toLocaleString());
+    scores += Math.ceil(scores * 5 * ((n/people[person].wealth)-0.90)) + Math.ceil(scores * varietyPerc * 3)
     $(".modal-body #tableTotalScore").text(scores.toLocaleString());
     submitLeaderboard();
 }
@@ -321,7 +335,11 @@ $(function (){
     $('#qtd1').change(function() { form_selected[1] = true; check_inputs();});
     $('#qtd2').change(function() { form_selected[2] = true; check_inputs();});
     $('#qtd3').change(function() { form_selected[3] = true; check_inputs();});
-    })
+
+    $('#modal_win_lose').on('hidden.bs.modal', function () {
+        window.location = './index.html';
+    });
+})
 
     $(document).on('click', "#modal_win_lose_button", function(){
         window.location = './index.html';
