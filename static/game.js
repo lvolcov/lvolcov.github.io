@@ -60,8 +60,10 @@ try{
     playerName = CryptoJS.enc.Base64.parse(playerName).toString(CryptoJS.enc.Utf8);
     playerName = playerName.split("_")[4];
 
+    console.log(person)
+    console.log(playerName)
     //Check
-    if(!(person >= 0 && person < 5)){
+    if(((!(person >= 0 && person < 5)) || playerName === "" || playerName == null || person == null || person === "")){
         alert("Please, don't touch the URL!");
         window.location = './index.html';
     }
@@ -69,13 +71,6 @@ try{
 catch(err) {
     alert("Please, don't touch the URL!");
     window.location = './index.html';
-    }
-
-    function check_link (){
-        if ((!(person >= 0 && person < 5)) || playerName === "" || playerName == null){
-            alert("Please, don't touch the URL!");
-            window.location = './index.html';
-        }
     }
 
 //Convert currency
@@ -275,7 +270,6 @@ var x = setInterval(function() {
 const prices = [];
 $(function (){
     //initializing page
-    check_link ();
     $(random());
     $("#name").text(people[person].name);
     $("#amount").text(convert(people[person].wealth));
@@ -348,7 +342,7 @@ let formData = new FormData();
     formData.append("name", playerName);
     formData.append("attempts", 5-submissions);
     formData.append("tips", 3-hints);
-    formData.append("scorefinal", scores);
+    formData.append("scorefinal", Number(scores*-1));
     formData.append("choice", people[person].name);
 fetch(scriptURL, { method: 'POST', body: formData})
     .then(response => console.log('Success!', response))
