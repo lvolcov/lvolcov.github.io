@@ -171,7 +171,7 @@ function win(n){
     $("#submit").attr("disabled", true);
     $("#scoreCounting").text(scores).css("color","green");
     $('#modal_win_lose').modal('show').css('overflow-y', 'auto');
-    $('#modal_win_lose_title').text("YOU WIN!")
+    $('#modal_win_lose_title').html("YOU WIN! 🎉 🎉 🎉")
     $("#win_lose").attr("src", people[person].win);
     $('#modal_win_lose_body').html(people[person].winSentence)
     $('#modal_win_lose_button').text("Play again!")
@@ -215,18 +215,18 @@ function lose(){
     $('#modal_win_lose').modal('show');
     $('#modal_win_lose_title').text("YOU LOSE!")
     $("#win_lose").attr("src", people[person].lose);
-    $('#modal_win_lose_body').html(people[person].name + " is really disappointed with you!<br> You were his last hope, now he doesn't know how to spend all his humongous amount of money and sees himself obligated to live the rest of his life with the guilt of being so rich while you... <br>Well, you're not...")
+    $('#modal_win_lose_body').html(people[person].name + " is really disappointed with you!<br> You were his last hope, now he doesn't know how to spend all his humongous amount of money and sees himself obligated to live the rest of his life with the guilt of being so rich while you... <br>Well, you're not... 😅 😅 😅")
     $('#modal_win_lose_button').text("Try again!")
 
 }
 
 function wrong_answer(n){
     if (n < (target*0.9)){
-        $("#text_wrong").text("You need to spend more money!")
+        $("#text_wrong").text("💰 💰 You need to spend more money! 💰 💰")
         $('#wrong').modal('show');
     }
     else {
-        $("#text_wrong").text("You have to spend less money!")
+        $("#text_wrong").text("💸 💸 You have to spend less money! 💸 💸")
         $('#wrong').modal('show');
     }   
 }
