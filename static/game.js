@@ -336,15 +336,14 @@ $(function (){
 //Got it from https://dev.to/omerlahav/submit-a-form-to-a-google-spreadsheet-1bia
 
 function submitLeaderboard (){
-    console.log("ta subindo")
-const scriptURL = 'https://script.google.com/macros/s/AKfycbw48zi9ewBO06ZZvg0lXYsH5Xd2lIY5eyg5jAISQMWLBGjiwX0/exec'
-let formData = new FormData();
+    const scriptURL = CryptoJS.enc.Base64.parse("aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3NDh6aTlld0JPMDZaWnZnMGxYWXNINVhkMmxJWTVleWc1akFJU1FNV0xCR2ppd1gwL2V4ZWM=").toString(CryptoJS.enc.Utf8)
+    let formData = new FormData();
     formData.append("name", playerName);
     formData.append("attempts", 5-submissions);
     formData.append("tips", 3-hints);
     formData.append("scorefinal", Number(scores*-1));
     formData.append("choice", people[person].name);
-fetch(scriptURL, { method: 'POST', body: formData})
+    fetch(scriptURL, { method: 'POST', body: formData})
     .then(response => console.log('Success!', response))
     .catch(error => console.error('Error!', error.message))
 }

@@ -119,7 +119,7 @@ $(function (){
 })
 
 // got it from https://mdbootstrap.com/snippets/jquery/ascensus/453950
-$.getJSON("https://spreadsheets.google.com/feeds/list/1voiXrIwNAZydZbCwZYT4xEakryd0S4E9ZHAHKKCPjJI/1/public/values?alt=json", function (data) {
+$.getJSON(CryptoJS.enc.Base64.parse("aHR0cHM6Ly9zcHJlYWRzaGVldHMuZ29vZ2xlLmNvbS9mZWVkcy9saXN0LzF2b2lYckl3TkFaeWRaYkN3WllUNHhFYWtyeWQwUzRFOVpIQUhLS0NQakpJLzEvcHVibGljL3ZhbHVlcz9hbHQ9anNvbg==").toString(CryptoJS.enc.Utf8), function (data) {
 
       var sheetData = data.feed.entry;
 
