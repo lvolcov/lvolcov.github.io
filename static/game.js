@@ -71,6 +71,13 @@ catch(err) {
     window.location = './index.html';
     }
 
+    function check_link (){
+        if ((!(person >= 0 && person < 5)) || playerName === "" || playerName == null){
+            alert("Please, don't touch the URL!");
+            window.location = './index.html';
+        }
+    }
+
 //Convert currency
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -268,6 +275,7 @@ var x = setInterval(function() {
 const prices = [];
 $(function (){
     //initializing page
+    check_link ();
     $(random());
     $("#name").text(people[person].name);
     $("#amount").text(convert(people[person].wealth));

@@ -133,7 +133,7 @@ $.getJSON("https://spreadsheets.google.com/feeds/list/1voiXrIwNAZydZbCwZYT4xEakr
         var tips_used = data.feed.entry[i]['gsx$tips']['$t'];
         var final_score = data.feed.entry[i]['gsx$scorefinal']['$t'];
 
-        document.getElementById('data_leaderboard').innerHTML += ('<tr>'+'<td>'+Number(i+1)+'</td>'+'<td>'+name+'</td>'+'<td>'+attempts+'</td>'+'<td>'+tips_used+'</td>'+'<td>'+final_score+'</td>'+'<td>'+billionaire+'</td>'+'<td>'+date+'</td>'+'</tr>');
+        document.getElementById('data_leaderboard').innerHTML += ('<tr>'+'<td>'+Number(i+1)+'</td>'+'<td>'+name+'</td>'+'<td>'+attempts+'</td>'+'<td>'+tips_used+'</td>'+'<td>'+Number(final_score*-1)+'</td>'+'<td>'+billionaire+'</td>'+'<td>'+date+'</td>'+'</tr>');
 
       }
     });
